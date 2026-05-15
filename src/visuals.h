@@ -52,6 +52,7 @@ namespace Cheat::Visuals
         float Distance;
     };
 
+    void RegisterConfig(Hax::IniFile& iniFile);
     void InitializeMenu(Hax::Handle hDirectX11);
     bool IsUpgrAutouse(void* assetName);
 }

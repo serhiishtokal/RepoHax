@@ -285,6 +285,8 @@ namespace Cheat::WinHooks
         GCheat->GameInputPrevented = false;
         GCheat->LockedCursorPos.Reset();
         GCheat->MenuVisible = false;
+
+        Hax::IniSave(GCheat->IniFile);
     }
 
 }

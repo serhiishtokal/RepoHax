@@ -209,6 +209,29 @@ namespace Cheat::Visuals
         { .InternalNameEnd = L"", .Loc = LocKey_Unknown }
     };
 
+    void RegisterConfig(Hax::IniFile& iniFile)
+    {
+        constexpr const char* section = "UpgradeAutoUse";
+        static const char* names[(int)UpgradeType::N] =
+        {
+            "CrouchRest",
+            "ExtraJump",
+            "Range",
+            "SprintSpeed",
+            "Stamina",
+            "Strength",
+            "Launch",
+            "Wings",
+            "Health",
+            "PlayersCount",
+            "Climb",
+            "HeadBattery"
+        };
+
+        for (int i = 0; i < (int)UpgradeType::N; ++i)
+            Hax::IniAddEntry(iniFile, section, names[i], &g_UpgradeInfo[i].AutoUse, Hax::IniFileWrite_Bool, Hax::IniFileRead_Bool);
+    }
+
     enum VerticalAlignment : int 
     {
         VerticalAlignment_Bottom,

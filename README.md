@@ -97,7 +97,7 @@
 ---
 
 ### Configuration
-The menu hotkey and interface language can be adjusted in the **Settings** tab.
+The menu hotkey, interface language, and menu options can be adjusted in the **Settings** tab and are saved to `haxsdk.ini`.
 
 ---
 

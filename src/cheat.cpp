@@ -7,6 +7,51 @@ namespace Cheat
 {
     static void* Hooked_MonoRuntimeInvoke(UVM::Method* a1, void* a2, void* a3, void* a4);
 
+    static void RegisterConfig(Hax::IniFile& iniFile)
+    {
+        Hax::IniAddEntry(iniFile, "Cheat", "UseConsole",  &GCheat->UseConsole,  Hax::IniFileWrite_Bool, Hax::IniFileRead_Bool);
+        Hax::IniAddEntry(iniFile, "Cheat", "VkOpenClose", &GCheat->VkOpenClose, Hax::IniFileWrite_Int,  Hax::IniFileRead_Int);
+        Hax::IniAddEntry(iniFile, "Cheat", "Language", &GCheat->Lang, Hax::IniFileWrite_Int,  Hax::IniFileRead_Int);
+        Hax::IniAddEntry(iniFile, "Cheat", "DarkenBackground", &GCheat->DarkenBg, Hax::IniFileWrite_Bool, Hax::IniFileRead_Bool);
+
+        Hax::IniAddEntry(iniFile, "Stats", "Godmode", &GCheat->Godmode, Hax::IniFileWrite_Bool, Hax::IniFileRead_Bool);
+        Hax::IniAddEntry(iniFile, "Stats", "InfiniteStamina", &GCheat->InfStamina, Hax::IniFileWrite_Bool, Hax::IniFileRead_Bool);
+        Hax::IniAddEntry(iniFile, "Stats", "WalkingSpeed", &GCheat->Acceleration.Walking, Hax::IniFileWrite_Int, Hax::IniFileRead_Int);
+        Hax::IniAddEntry(iniFile, "Stats", "SprintingSpeed", &GCheat->Acceleration.Sprinting, Hax::IniFileWrite_Int, Hax::IniFileRead_Int);
+        Hax::IniAddEntry(iniFile, "Stats", "CrouchingSpeed", &GCheat->Acceleration.Crouching, Hax::IniFileWrite_Int, Hax::IniFileRead_Int);
+        Hax::IniAddEntry(iniFile, "Stats", "InfiniteJumps", &GCheat->InfJumps, Hax::IniFileWrite_Bool, Hax::IniFileRead_Bool);
+        Hax::IniAddEntry(iniFile, "Stats", "NoTumble", &GCheat->NoTumble, Hax::IniFileWrite_Bool, Hax::IniFileRead_Bool);
+        Hax::IniAddEntry(iniFile, "Stats", "EasyGrab", &GCheat->EasyGrab, Hax::IniFileWrite_Bool, Hax::IniFileRead_Bool);
+        Hax::IniAddEntry(iniFile, "Stats", "UnlimitedGrabRange", &GCheat->UnlimGrabRange, Hax::IniFileWrite_Bool, Hax::IniFileRead_Bool);
+        Hax::IniAddEntry(iniFile, "Stats", "NoOverCharge", &GCheat->NoOverCharge, Hax::IniFileWrite_Bool, Hax::IniFileRead_Bool);
+        Hax::IniAddEntry(iniFile, "Stats", "AutoUseUpgrades", &GCheat->AutoUseUpgr, Hax::IniFileWrite_Bool, Hax::IniFileRead_Bool);
+
+        Hax::IniAddEntry(iniFile, "Entities", "NoGrabMaxTime", &GCheat->NoGrabMaxTime, Hax::IniFileWrite_Bool, Hax::IniFileRead_Bool);
+        Hax::IniAddEntry(iniFile, "Entities", "EnemiesEsp", &GCheat->EnemiesEsp, Hax::IniFileWrite_Bool, Hax::IniFileRead_Bool);
+        Hax::IniAddEntry(iniFile, "Entities", "PlayersEsp", &GCheat->PlayersEsp, Hax::IniFileWrite_Bool, Hax::IniFileRead_Bool);
+        Hax::IniAddEntry(iniFile, "Entities", "PlayerChams", &GCheat->PlayerChams, Hax::IniFileWrite_Bool, Hax::IniFileRead_Bool);
+
+        Hax::IniAddEntry(iniFile, "Vision", "ImproveVision", &GCheat->ImproveVision, Hax::IniFileWrite_Bool, Hax::IniFileRead_Bool);
+        Hax::IniAddEntry(iniFile, "Vision", "ThirdPerson", &GCheat->ThirdPerson, Hax::IniFileWrite_Bool, Hax::IniFileRead_Bool);
+        Hax::IniAddEntry(iniFile, "Vision", "FOV", &GCheat->FOV, Hax::IniFileWrite_Int, Hax::IniFileRead_Int);
+        Hax::IniAddEntry(iniFile, "Vision", "FlashlightIntensity", &GCheat->Flashlight.Intensity, Hax::IniFileWrite_Int, Hax::IniFileRead_Int);
+        Hax::IniAddEntry(iniFile, "Vision", "FlashlightAngle", &GCheat->Flashlight.Angle, Hax::IniFileWrite_Int, Hax::IniFileRead_Int);
+        Hax::IniAddEntry(iniFile, "Vision", "FlashlightAllowInCrouch", &GCheat->Flashlight.AllowInCrouch, Hax::IniFileWrite_Bool, Hax::IniFileRead_Bool);
+        Hax::IniAddEntry(iniFile, "Vision", "HeadMaxBattery", &GCheat->HeadMaxBattery, Hax::IniFileWrite_Bool, Hax::IniFileRead_Bool);
+
+        Hax::IniAddEntry(iniFile, "Valuables", "ValuablesEsp", &GCheat->ValuablesEsp, Hax::IniFileWrite_Bool, Hax::IniFileRead_Bool);
+        Hax::IniAddEntry(iniFile, "Valuables", "ItemsChams", &GCheat->ItemsChams, Hax::IniFileWrite_Bool, Hax::IniFileRead_Bool);
+        Hax::IniAddEntry(iniFile, "Valuables", "Unbreakable", &GCheat->Unbreakable, Hax::IniFileWrite_Bool, Hax::IniFileRead_Bool);
+        Hax::IniAddEntry(iniFile, "Valuables", "ExtractionPointsEsp", &GCheat->ExtrPointsEsp, Hax::IniFileWrite_Bool, Hax::IniFileRead_Bool);
+
+        Hax::IniAddEntry(iniFile, "Items", "InfBattery", &GCheat->InfBattery, Hax::IniFileWrite_Bool, Hax::IniFileRead_Bool);
+        Hax::IniAddEntry(iniFile, "Items", "UseLaser", &GCheat->UseLaser, Hax::IniFileWrite_Bool, Hax::IniFileRead_Bool);
+
+        Hax::IniAddEntry(iniFile, "Misc", "TruckEsp", &GCheat->TruckEsp, Hax::IniFileWrite_Bool, Hax::IniFileRead_Bool);
+
+        Visuals::RegisterConfig(iniFile);
+    }
+
     bool Initialize(void* hCheat)
     {
         if (!Hax::Unity::IsUnityProcess())
@@ -16,9 +61,7 @@ namespace Cheat
         GCheat->hCheat = (HMODULE)hCheat;
 
         Hax::IniFile& iniFile = GCheat->IniFile;
-        Hax::IniAddEntry(iniFile, "Cheat", "UseConsole",  &GCheat->UseConsole,  Hax::IniFileWrite_Bool, Hax::IniFileRead_Bool);
-        Hax::IniAddEntry(iniFile, "Cheat", "VkOpenClose", &GCheat->VkOpenClose, Hax::IniFileWrite_Int,  Hax::IniFileRead_Int);
-        Hax::IniAddEntry(iniFile, "Cheat", "Language", &GCheat->Lang, Hax::IniFileWrite_Int,  Hax::IniFileRead_Int);
+        RegisterConfig(iniFile);
         Hax::IniLoad(iniFile);
 
         Hax::LogFile& logFile = GCheat->LogFile;
